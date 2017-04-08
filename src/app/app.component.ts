@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'fw works!';
+  message = 'Hi there, I am at ForwardJS 2017. Angular CLI is awesome!';
 }

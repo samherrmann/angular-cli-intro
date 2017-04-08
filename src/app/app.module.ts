@@ -6,12 +6,14 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header.component';
 import { EmphasizeDirective } from './emphasize.directive';
+import { TruncatePipe } from './truncate.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    EmphasizeDirective
+    EmphasizeDirective,
+    TruncatePipe
   ],
   imports: [
     BrowserModule,
