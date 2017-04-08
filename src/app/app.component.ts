@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { LoggerService } from "./logger.service";
-import { GithubService, User } from "./github.service";
+import { GithubService, User, Repo } from "./github.service";
 
 @Component({
   selector: 'fw-root',
@@ -11,6 +11,7 @@ export class AppComponent {
   title = 'fw works!';
   message = 'Hi there, I am at ForwardJS 2017. Angular CLI is awesome!';
   user = new User();
+  userRepos: Repo[] = [];
 
   constructor(private logger: LoggerService,
               private github: GithubService) {
@@ -18,6 +19,12 @@ export class AppComponent {
 
     github.getUser().subscribe((user: User) => {
       this.user = user;
+
+      github.getRepos(this.user).subscribe((repos => {
+        this.userRepos = repos;
+      }));
     });
+
+
   }
 }

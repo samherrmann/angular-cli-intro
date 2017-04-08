@@ -9,3 +9,9 @@
 <h2 *ngIf="user.location !== 'Canada'">
   Boooo!
 </h2>
+
+<ul>
+  <li *ngFor="let repo of userRepos">
+    Name: {{repo.name}}, Forks Count: {{repo.forks_count}}, Open Issues: {{repo.open_issues}}
+  </li>
+</ul>

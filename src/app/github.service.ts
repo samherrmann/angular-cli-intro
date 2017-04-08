@@ -19,13 +19,22 @@ export class GithubService {
       .map((response: Response) => this.toUser(response.json()))
   }
 
+  getRepos(user: User): Observable<Repo[]> {
+    return this.http.get(user.repos_url)
+      .map((response: Response) => this.mapRepos(response))
+  }
+
   private toUser = (r: any): User => {
     let user = new User(r);
     return user;
   }
 
-  private mapUsers = (response: Response): User[] => {
-    return response.json().map(this.toUser)
+  private mapRepos = (response:Response): Repo[] => {
+    return response.json().map(this.toRepo);
+  }
+
+  private toRepo(json: any): Repo {
+    return new Repo(json)
   }
 
 }
@@ -59,5 +68,17 @@ export class User {
     obj.followers = this.followers
     obj.following = this.following
     return obj
+  }
+}
+
+export class Repo {
+  name: string;
+  forks_count: number;
+  open_issues: number;
+
+  constructor(json: any) {
+    this.name = json.name;
+    this.forks_count = json.forks_count;
+    this.open_issues = json.open_issues;
   }
 }
