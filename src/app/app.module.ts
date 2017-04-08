@@ -8,6 +8,7 @@ import { HeaderComponent } from './header.component';
 import { EmphasizeDirective } from './emphasize.directive';
 import { TruncatePipe } from './truncate.pipe';
 import { LoggerService } from "./logger.service";
+import { GithubService } from "./github.service";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,9 @@ import { LoggerService } from "./logger.service";
     HttpModule
   ],
   providers: [
-    LoggerService
+    LoggerService,
+    GithubService
+
   ],
   bootstrap: [AppComponent]
 })

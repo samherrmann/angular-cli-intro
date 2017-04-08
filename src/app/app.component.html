@@ -1,12 +1,11 @@
-<fw-header fwEmphasize></fw-header>
-<h1>
-  {{title}}
+<h1 *ngIf="user">
+  {{user.name}}
 </h1>
 
-<p>
-  {{ message }}
-</p>
+<h2 *ngIf="user.location === 'Canada'">
+  He's Canadian!
+</h2>
 
-<p>
-  {{ message | truncate: 15}}
-</p>
+<h2 *ngIf="user.location !== 'Canada'">
+  Boooo!
+</h2>
