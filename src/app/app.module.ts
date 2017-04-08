@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header.component';
 import { EmphasizeDirective } from './emphasize.directive';
 import { TruncatePipe } from './truncate.pipe';
+import { LoggerService } from "./logger.service";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,9 @@ import { TruncatePipe } from './truncate.pipe';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [
+    LoggerService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
